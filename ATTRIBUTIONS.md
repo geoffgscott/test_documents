@@ -36,6 +36,14 @@ by its license. Per-document provenance (upstream id, source revision, license) 
 - **Used here:** 31 accepted documents (vendor).
 - **Modifications:** ground truth normalized to canonical GFM (see README → How the data was modified). Derived GT is a derivative work under the upstream license.
 
+## Wrong-mapping corpus (`pdf/wrong_mapping/`)
+
+Synthesized for xberg issue #1696 (a `/ToUnicode` CMap that decodes to the wrong letters while the
+rendered page stays byte-identical). Built from three already-vendored readoc README PDFs (MIT,
+see `lazyc/READoc` above) by `scripts/build_wrong_mapping_pdfs.py`, which rewrites only the
+`/ToUnicode` CMap streams. Per-file source, license, transform, and sha256 is in
+`pdf/wrong_mapping/PROVENANCE.md`.
+
 ## WordPerfect corpus (`wordperfect/`)
 
 Vendored WordPerfect-family test files. Per-file provenance (upstream path, revision, format/version) is in
