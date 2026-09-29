@@ -3,7 +3,7 @@ name = "test_documents"
 description = "Shared document corpus and ground truth used as test fixtures across the xberg polyrepo. A fixture corpus, not a codebase: the binaries live in a public GCS bucket and are pinned by corpus.lock.json."
 gitignore = true
 
-presets = ["claude", "codex"]
+presets = ["claude", "codex", "opencode"]
 
 compact = true
 [header]
