@@ -227,6 +227,64 @@ Vendored WordPerfect-family test files. Per-file provenance (upstream path, revi
   is a self-contained A/B for the table heuristic.
 - **Modifications:** renamed for stable corpus addressing; document bytes are otherwise unchanged.
 
+## Synthetic Arabic and Hebrew right-to-left fixtures
+
+- **Source:** authored for this corpus. The exact logical-order HTML sources are
+  `pdf_scanned/sources/rtl_arabic.html` (SHA-256
+  `1e50529cd42d3395c883b2bafba9d7639b50d22c50a97913ea098a4cf525b8f5`) and
+  `pdf_scanned/sources/rtl_hebrew.html` (SHA-256
+  `0b937b15785fb79b3e647c53551ffde7ad26a65668e86922890239668ce1e5ed`).
+- **License:** MIT, as our own work.
+- **Used here:** two native A4 PDFs (`pdf/rtl_*_native.pdf`), two 300-DPI page images
+  (`images/rtl_*_300dpi.png`), and two image-only CCITT-G4 PDFs
+  (`pdf_scanned/rtl_*_scanned.pdf`). Each language covers headings, prose, numbered lists, table
+  cells, punctuation, ASCII numbers, and embedded left-to-right identifiers such as
+  `REQ-2026-104`, `OCR-v2.1`, and `A-17`.
+- **Ground truth:** the six `.txt` files under `ground_truth/pdf/` and `ground_truth/images/` copy
+  the authored text in logical Unicode order. They were checked against the rendered pages; no OCR
+  or extractor output was used to create them.
+- **Rendering:** LibreOffice 26.8.0.3
+  (`bce0998afefdbc355585ca324285661a2170ba77`) exported the HTML sources to PDF. Its bundled Noto
+  Sans Arabic and Noto Sans Hebrew fonts are OFL-1.1. The embedded regular font inputs have SHA-256
+  `d6efa4c9fac8ecefd2de19676acc3a396ba7aee99ba7a2d513950246841b6725` and
+  `671951828bd5c95db818e5bb12dcea2d0c0dda00311888522be061ee6835125e`; the bold inputs have SHA-256
+  `457926cb001ac787dc7415c89e6f5b1c4ce3a0f2c91d0cabc1bc19a05638e7de` and
+  `96f88305d31a8432f0fe6648c853cb9ef77db8e52ada8948ed0c577037d45423`.
+- **Scan derivation:** Poppler 26.10.0 rasterized each native PDF at 300 DPI. ImageMagick 7.1.2-32
+  converted the page to bilevel Group 4 TIFF, and libtiff 4.7.2 wrapped it as a PDF. `pdftotext`
+  returns zero text bytes for both scanned PDFs, and `pdfimages -list` reports exactly one 2481 ×
+  3508, 300-DPI, one-bit image per file.
+- **Modifications:** the scan variants are raster derivatives of the corresponding native fixture;
+  their visible content is otherwise unchanged.
+
+## Pinkas Dataset historical Hebrew manuscript page
+
+- **Citation:** Irina Rabaev, Berat Kurar Bakarat, and Jihad El-Sana, *The Pinkas Dataset*,
+  ICDAR 2019, DOI `10.1109/ICDAR.2019.00122_dataset`.
+- **Source:** Zenodo record <https://zenodo.org/records/3569694>, version 1, published 10 December
+  2019. The deposited archive `pinkas_dataset.zip` has MD5
+  `802f14fbdb400efab9cb0808c3620be8` and contains the paired upstream files
+  `Page 132_1.jpg` and `Page 132_1.xml`.
+- **License:** CC BY 4.0, declared by the open-access Zenodo dataset record:
+  <https://creativecommons.org/licenses/by/4.0/>.
+- **Selection evidence:** HebOCRBench commit `2cb763b50e70ed01991894cd0024b2a91b12db37`
+  identifies pages 132_1 through 134_2 as its locked, public Pinkas test split and records exactly
+  38 line samples for `Page 132_1.xml`:
+  <https://github.com/office883/HebOCRBench/blob/2cb763b50e70ed01991894cd0024b2a91b12db37/src/hebocrbench/converters/pinkas_webdataset.py#L23-L30>.
+- **Used here:** `images/pinkas_page_132_1.jpg` (SHA-256
+  `87129d6203378a4bf20ecf82f197c8eca6b3f7dde087ca0963e94849b9e697f7`) and the upstream PAGE
+  2018-07-15 annotation `ground_truth/pagexml/pinkas_page_132_1.xml` (SHA-256
+  `97012de884d16b1946f3dc009c7e8c4395561b8179375207a544494efeb82ffb`). The page is a real
+  historical Hebrew manuscript containing mixed Hebrew and Yiddish handwriting.
+- **Ground truth:** `ground_truth/images/pinkas_page_132_1.txt` is NFC-normalized logical-order
+  text derived from the four nonempty region-level PAGE `TextEquiv/Unicode` values in document
+  order. Their embedded line breaks are preserved, with one blank line between regions. This uses
+  all 38 annotated text lines and excludes the annotation's coordinate-only temporary line, which
+  has no line-level or region-level transcription. The page was visually inspected for content,
+  orientation, and region sequence; no OCR or Xberg output was used to create the oracle.
+- **Modifications:** the JPEG and PAGE XML bytes are unchanged; only the stable corpus filenames
+  differ from the upstream names. The plaintext ground truth applies the derivation above.
+
 ## City of Sugar Land, Texas — Ordinance No. 2197
 
 - **Citation:** City of Sugar Land, Texas, Ordinance No. 2197 (adopted 4 August 2020), a zoning change for approximately 0.7906 acres at Lake Pointe Parkway and Creek Bend Drive.

@@ -625,6 +625,18 @@
       "sha256": "9a67a012fe80a9a07c639a9a59ddb98feed64f4604d4d7dacd698e0a7d642004",
       "size": 41532
     },
+    "images/pinkas_page_132_1.jpg": {
+      "sha256": "87129d6203378a4bf20ecf82f197c8eca6b3f7dde087ca0963e94849b9e697f7",
+      "size": 1863379
+    },
+    "images/rtl_arabic_300dpi.png": {
+      "sha256": "d2437be0259b789f248c0acea3b54ed5289d9b78746ddfe6bb311c521be4b8a9",
+      "size": 232927
+    },
+    "images/rtl_hebrew_300dpi.png": {
+      "sha256": "60737535100d4b441eb6882ce601c14aab2845ae4810cdb993ecf1950206bede",
+      "size": 147086
+    },
     "images/rust-logo-512x512-blk.jp2": {
       "sha256": "5bd02e10645f23c519c413224d96a82af3dd2a0f8c9d085b77d8c91e6f0fc77e",
       "size": 89445
@@ -1713,6 +1725,14 @@
       "sha256": "30d675db2a5c9613f2b12cb03e74c8f9384f473274216ee6a271cf0c99301f14",
       "size": 102852
     },
+    "pdf/rtl_arabic_native.pdf": {
+      "sha256": "399aab1645159c8d7b62601d2cedda52baa77b4b518b73b0095676519efb4a23",
+      "size": 53779
+    },
+    "pdf/rtl_hebrew_native.pdf": {
+      "sha256": "f4b2a3e60f0b1ed0e6e22965c37e6334444bd479dcfecede544d2428d6f0f786",
+      "size": 41597
+    },
     "pdf/sample_contract.pdf": {
       "sha256": "5c970b36c96f043f2be2ffe4f02746075e7b9210536130128f53e8d62894eb1a",
       "size": 49647
@@ -1840,6 +1860,14 @@
     "pdf_scanned/ordinance_2197_scanned.pdf": {
       "sha256": "94dcfbd413fb69aedc0b2005893ddba2ea77be82da3ff3631dd17ff4c983749a",
       "size": 538907
+    },
+    "pdf_scanned/rtl_arabic_scanned.pdf": {
+      "sha256": "c3a4003dac0b73879fff960a907872aaef00b4768af45ba2df3f5841f8bf6f50",
+      "size": 12523
+    },
+    "pdf_scanned/rtl_hebrew_scanned.pdf": {
+      "sha256": "2b17b9d31c7dbe0cc6a0ebc2195d32032c687766d617e89d15f0d641b9a879e5",
+      "size": 9571
     },
     "pdf_scanned/synthetic_math_interpolation_scanned.pdf": {
       "sha256": "99dd205450e6dfbd638a2a4ce03058ba595436acdafe0e736e126753c5b71834",
