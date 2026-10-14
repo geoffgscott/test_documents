@@ -1,15 +1,21 @@
 ---
-priority: high
+type: Concept
+title: Corpus Model
+x-ai-rulez:
+  kind: context
+  id: corpus-model
+  metadata:
+    priority: high
 ---
 
-# What this repository is
+## What this repository is
 
 A fixture corpus, not a codebase. Every top-level directory except `scripts/` holds documents that
 exist precisely because of their exact bytes — malformed XML, legacy encodings, deliberate typos,
 hand-authored whitespace, deliberately unused imports. They are inputs to other repositories' tests,
 and their content is the assertion.
 
-## The binaries are not in git
+### The binaries are not in git
 
 ~580 MiB of corpus binaries live in the public GCS bucket `gs://xberg-test-documents`, stored
 content-addressed at `objects/<sha256>`. `corpus.lock.json` at the repo root maps every
@@ -25,7 +31,7 @@ python3 scripts/fetch_corpus.py --include 'pdf/**'   # a subset
 after a fetch. Its pattern list is mirrored in `scripts/data/corpus-patterns.txt`, which is what the
 publisher enumerates; `scripts/tests/test_publish_corpus.py` fails if the two drift apart.
 
-## Consumers
+### Consumers
 
 This repo is a **git submodule** of `xberg`, `xberg-enterprise` and `sceptre`. CI in those repos
 materialises fixtures with the `xberg-io/actions/fetch-test-documents@v1` action, which reads
@@ -35,7 +41,7 @@ materialises fixtures with the `xberg-io/actions/fetch-test-documents@v1` action
 its object cache. A formatter touching it, or a change to key order, indent, or the trailing
 newline, invalidates every consumer's cache at once and changes what the manifest pins.
 
-## Publishing
+### Publishing
 
 CI cannot publish. A checkout has no binaries to upload, so publishing is a local maintainer action
 that commits a refreshed `corpus.lock.json`. What CI *can* do — and what actually protects

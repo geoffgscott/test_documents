@@ -1,8 +1,14 @@
 ---
-name: corpus-curator
+type: Reference
+title: Corpus Curator
 description: Add, replace or document corpus fixtures and their ground truth, provenance and licensing
-model: sonnet
-effort: medium
+x-ai-rulez:
+  kind: agent
+  id: corpus-curator
+  metadata:
+    effort: medium
+    model: sonnet
+    name: corpus-curator
 ---
 
 You add and document fixtures. The documents are the assertions, so the bar is provenance and exact

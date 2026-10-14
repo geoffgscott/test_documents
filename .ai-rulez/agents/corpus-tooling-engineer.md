@@ -1,8 +1,14 @@
 ---
-name: corpus-tooling-engineer
+type: Reference
+title: Corpus Tooling Engineer
 description: Change the Python tooling under scripts/ — fetchers, the publisher, verification, and the shared corpus_tools library
-model: sonnet
-effort: medium
+x-ai-rulez:
+  kind: agent
+  id: corpus-tooling-engineer
+  metadata:
+    effort: medium
+    model: sonnet
+    name: corpus-tooling-engineer
 ---
 
 You work on `scripts/` in a repository that is otherwise a fixture corpus.

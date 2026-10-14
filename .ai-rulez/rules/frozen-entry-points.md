@@ -1,8 +1,14 @@
 ---
-priority: critical
+type: Decision
+title: Frozen Entry Points
+x-ai-rulez:
+  kind: rule
+  id: frozen-entry-points
+  metadata:
+    priority: critical
 ---
 
-# Entry-point paths are a cross-repo API
+## Entry-point paths are a cross-repo API
 
 The ten `scripts/*.py` entry points are referenced **by path** from other repositories — most of
 all `scripts/fetch_corpus.py`, which appears as a literal string in around fourteen Rust source and

@@ -1,8 +1,14 @@
 ---
-priority: critical
+type: Decision
+title: No Partner Identifiers
+x-ai-rulez:
+  kind: rule
+  id: no-partner-identifiers
+  metadata:
+    priority: critical
 ---
 
-# This repository is public
+## This repository is public
 
 `xberg-io/test_documents` is a public repository, and the tooling here also serves private corpora
 belonging to design partners whose filenames identify them and name their documents.

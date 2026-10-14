@@ -1,8 +1,14 @@
 ---
-priority: critical
+type: Decision
+title: Fixture Bytes Are Load Bearing
+x-ai-rulez:
+  kind: rule
+  id: fixture-bytes-are-load-bearing
+  metadata:
+    priority: critical
 ---
 
-# Fixture bytes are load-bearing
+## Fixture bytes are load-bearing
 
 Never reformat, "fix", or normalise anything outside `scripts/`. A corpus document's exact bytes
 are what it tests: malformed XML that must stay malformed, a legacy encoding whose declaration must stay
