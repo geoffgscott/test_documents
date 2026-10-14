@@ -1,8 +1,14 @@
 ---
-priority: high
+type: Concept
+title: Tooling
+x-ai-rulez:
+  kind: context
+  id: tooling
+  metadata:
+    priority: high
 ---
 
-# The tooling in `scripts/`
+## The tooling in `scripts/`
 
 Ten entry points over a shared library, plus their data and tests.
 
@@ -18,7 +24,7 @@ scripts/
   tests/           run by pytest AND by python3 -m unittest
 ```
 
-## Two transports, deliberately
+### Two transports, deliberately
 
 `corpus_tools/http.py` keeps both curl and urllib behind one retry policy. curl is the path
 consumers actually take — the CI action fetches with curl — so `verify_corpus` uses it to prove
@@ -26,13 +32,13 @@ that path still works. If it fetched with urllib, CI would stay green while asse
 about a TLS stack no consumer uses. urllib serves the provenance fetchers, which pull from eleven
 third-party hosts where real exception types matter and a subprocess per request does not.
 
-## Timeouts have reasons
+### Timeouts have reasons
 
 Three values, each derived from the largest object its source serves, recorded next to the
 constant. `SHARD_TIMEOUT_SECONDS = 300` exists for exactly one URL — the govdocs1 archive that
 yields 267 regression members in a single request. Do not raise the others to match it.
 
-## Running the tests
+### Running the tests
 
 ```sh
 uv run pytest                                             # the normal path

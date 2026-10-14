@@ -69,6 +69,7 @@ exclude = [
   "/xlsx/**",
   "/xml/**",
   "/yaml/**",
+  "/.ai-rulez/.generated-manifest.json",
 ]
 
 # ~keep Matches the polyrepo root's list. .ai-rulez/ authors agents and rules as front-matter plus
@@ -137,3 +138,9 @@ cache = { inputs = ["scripts/**/*.py", "pyproject.toml"] }
 "scripts/corpus_tools/**" = ["D101", "D102", "D103", "PLC0415", "PLW1510", "S607", "SIM105", "T201"]
 "scripts/tests/**" = ["ANN", "ARG002", "D", "INP001", "PLC2701", "PLR2004", "PT009", "PT027", "S", "SLF001"]
 "scripts/tests/test_http.py" = ["ANN", "D", "PLR2004", "PT009", "S", "SLF001"]
+
+[[hooks.sources]]
+id = "ai-rulez"
+git = "https://github.com/Goldziher/ai-rulez.git"
+revision = "ee42eef34f2922e4e75b75f25b1215b9492bb1aa"
+hooks = ["ai-rulez-validate"]
