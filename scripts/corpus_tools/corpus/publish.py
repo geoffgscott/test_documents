@@ -36,7 +36,7 @@ FORBIDDEN_PREFIXES = (".corpus-cache/", ".basemind/", ".venv/")
 # ~keep Pruned from the walk so a forbidden or irrelevant tree is never even considered; the
 # FORBIDDEN_PREFIXES guard still runs afterwards as the check that actually fails the publish.
 SKIPPED_DIRECTORIES = frozenset(
-    {".corpus-cache", ".basemind", ".github", "__pycache__", ".pytest_cache", ".mypy_cache", ".ruff_cache", ".venv"}
+    {".corpus-cache", ".basemind", ".github", "__pycache__", ".pytest_cache", ".ruff_cache", ".venv"}
 )
 STAGING_DIR_PREFIX = ".corpus-publish-staging-"
 # ~keep Bounds the argv of a single `gcloud storage cp`; gcloud parallelises within one invocation.
@@ -74,7 +74,10 @@ def corpus_paths(root: Path, patterns: list[str], patterns_source: str | Path = 
         subdirectories[:] = [
             name
             for name in subdirectories
-            if name != ".git" and not name.startswith(STAGING_DIR_PREFIX) and name not in SKIPPED_DIRECTORIES
+            if name != ".git"
+            and not name.startswith(STAGING_DIR_PREFIX)
+            and name not in SKIPPED_DIRECTORIES
+            and not (name.startswith(".") and name.endswith("_cache"))
         ]
         base = Path(directory).relative_to(root)
         for filename in filenames:

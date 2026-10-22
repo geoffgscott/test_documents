@@ -203,7 +203,8 @@ class VirtualenvGuardTests(unittest.TestCase):
                 [
                     "pdf/ok.pdf",
                     ".ruff_cache/0.14/report.png",
-                    ".mypy_cache/3.12/cached.pdf",
+                    "__pycache__/cached.pdf",
+                    ".retired_checker_cache/3.12/cached.pdf",
                     ".pytest_cache/v/cache/sample.png",
                 ],
             )
